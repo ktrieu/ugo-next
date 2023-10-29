@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-lexend-medium)"],
+        serif: ["var(--font-lexend-regular)"],
       },
       colors: {
         primary: "rgb(2, 122, 14)",

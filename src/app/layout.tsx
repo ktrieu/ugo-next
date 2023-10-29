@@ -10,6 +10,13 @@ const lexendMedium = Lexend({
   display: "swap",
 });
 
+const lexendRegular = Lexend({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-lexend-regular",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "UGO II",
   description: "UGO II: Our product is.",
@@ -22,7 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lexendMedium.variable} bg-secondary`}>
+      <body
+        className={`${lexendMedium.variable} ${lexendRegular.variable} bg-secondary`}
+      >
         <Navbar />
         <main>{children}</main>
       </body>
