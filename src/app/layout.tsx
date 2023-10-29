@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lexendMedium.variable}`}>
+      <body className={`${lexendMedium.variable} bg-secondary`}>
         <Navbar />
         <main>{children}</main>
       </body>

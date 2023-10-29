@@ -11,6 +11,10 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-lexend-medium)"],
       },
+      colors: {
+        primary: "rgb(2, 122, 14)",
+        secondary: "#E9E3B4",
+      },
     },
   },
   plugins: [],
