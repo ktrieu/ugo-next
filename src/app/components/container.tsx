@@ -5,5 +5,7 @@ type ContainerProps = {
 };
 
 export const ResponsiveContainer = (props: ContainerProps) => {
-  return <div className="my-3 mx-auto max-w-screen-lg">{props.children}</div>;
+  return (
+    <div className="my-3 max-w-screen-lg mx-6 lg:mx-auto">{props.children}</div>
+  );
 };
