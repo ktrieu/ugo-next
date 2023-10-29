@@ -28,7 +28,7 @@ export const MobileNavbar = () => {
         {expanded && (
           <ul className="flex flex-col gap-6 mb-6">
             {NAVBAR_ITEMS.map((item) => (
-              <li>
+              <li key={item.href}>
                 <Link href={item.href} className="hover:underline">
                   <h1 className="text-3xl">{item.text}</h1>
                 </Link>

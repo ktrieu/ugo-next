@@ -17,7 +17,7 @@ const DesktopNavbar = () => {
             </Link>
           </div>
           {NAVBAR_ITEMS.map((item) => (
-            <Link href={item.href} className="hover:underline">
+            <Link href={item.href} className="hover:underline" key={item.href}>
               <h1 className="text-3xl">{item.text}</h1>
             </Link>
           ))}
