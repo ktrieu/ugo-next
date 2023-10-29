@@ -17,7 +17,7 @@ const DesktopNavbar = () => {
         <>
           <div className="flex-1">
             <Link className="mr-auto" href="/">
-              <Image src={desktopLogo} alt="The UGO II logo." />
+              <Image src={desktopLogo} alt="The UGO II logo." priority />
             </Link>
           </div>
           {NAVBAR_ITEMS.map((item) => (
