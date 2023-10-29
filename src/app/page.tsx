@@ -1,5 +1,9 @@
-import Image from "next/image";
+import { ResponsiveContainer } from "./container";
 
 export default function Home() {
-  return <h1>UGO NEXT</h1>;
+  return (
+    <ResponsiveContainer>
+      <h1 className="mx-auto text-9xl text-center">UGO NEXT</h1>
+    </ResponsiveContainer>
+  );
 }

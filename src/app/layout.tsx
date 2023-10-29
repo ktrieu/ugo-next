@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "./components/navbar";
 
 const lexendMedium = Lexend({
   subsets: ["latin"],
@@ -21,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lexendMedium.variable}`}>{children}</body>
+      <body className={`${lexendMedium.variable}`}>
+        <Navbar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
