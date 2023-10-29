@@ -1,28 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ResponsiveContainer } from "@/app/container";
+import { ResponsiveContainer } from "@/app/components/container";
 
 import desktopLogo from "public/logo_navbar_desktop.svg";
-
-type NavbarItem = {
-  text: string;
-  href: string;
-};
-
-const NAVBAR_ITEMS: NavbarItem[] = [
-  {
-    text: "Home",
-    href: "/",
-  },
-  {
-    text: "About",
-    href: "/about",
-  },
-  {
-    text: "Catalogue",
-    href: "/catalogue",
-  },
-];
+import { NAVBAR_ITEMS } from "./items";
+import { MobileNavbar } from "./mobile";
 
 const DesktopNavbar = () => {
   return (
@@ -46,5 +28,14 @@ const DesktopNavbar = () => {
 };
 
 export const Navbar = () => {
-  return <DesktopNavbar />;
+  return (
+    <>
+      <div className="hidden lg:block">
+        <DesktopNavbar />
+      </div>
+      <div className="block lg:hidden">
+        <MobileNavbar />
+      </div>
+    </>
+  );
 };

@@ -1,4 +1,4 @@
-import { ResponsiveContainer } from "./container";
+import { ResponsiveContainer } from "./components/container";
 
 export default function Home() {
   return (
