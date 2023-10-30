@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "./components/navbar";
+import { Navbar } from "../components/navbar";
 
 const lexendMedium = Lexend({
   subsets: ["latin"],

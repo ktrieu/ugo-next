@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FullHeightHero, ResponsiveContainer } from "./components/container";
+import { FullHeightHero, ResponsiveContainer } from "../components/container";
 
 const NotFound = () => {
   return (

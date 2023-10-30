@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { List } from "@phosphor-icons/react/dist/ssr/index";
 
-import { ResponsiveContainer } from "@/app/components/container";
+import { ResponsiveContainer } from "@/components/container";
 import desktopLogo from "public/logo_navbar_desktop.svg";
 import { NAVBAR_ITEMS } from "./items";
 

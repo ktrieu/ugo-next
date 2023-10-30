@@ -1,4 +1,4 @@
-import { FullHeightHero } from "@/app/components/container";
+import { FullHeightHero } from "@/components/container";
 import styles from "./HomeHero.module.css";
 
 export const HomeHero = () => {
