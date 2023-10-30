@@ -33,6 +33,7 @@ export const FullHeightHero = (props: FullHeightHeroProps) => {
             priority={props.background.priority}
             fill
             style={{ objectFit: "cover" }}
+            placeholder="blur"
           />
         </div>
       )}
