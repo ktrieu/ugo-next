@@ -18,6 +18,7 @@ export type FullHeightHeroProps = {
   background?: {
     src: StaticImport | string;
     alt: string;
+    priority?: boolean;
   };
 };
 
@@ -29,8 +30,9 @@ export const FullHeightHero = (props: FullHeightHeroProps) => {
           <Image
             src={props.background.src}
             alt={props.background.alt}
+            priority={props.background.priority}
             fill
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
       )}

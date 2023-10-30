@@ -9,6 +9,7 @@ export const HomeHero = () => {
       background={{
         src: hero,
         alt: "The Earth from space at night.",
+        priority: true,
       }}
     >
       <ResponsiveContainer>
