@@ -6,14 +6,10 @@ import desktopLogo from "public/logo_navbar_desktop.svg";
 import { NAVBAR_ITEMS } from "./items";
 import { MobileNavbar } from "./mobile";
 
-export const NAVBAR_HEIGHT = "6rem";
-
 const DesktopNavbar = () => {
   return (
     <ResponsiveContainer>
-      <nav
-        className={`flex items-center content-between py-6 gap-12 h-[${NAVBAR_HEIGHT}]`}
-      >
+      <nav className="flex items-center content-between py-6 gap-12 h-[--navbar-height]">
         <>
           <div className="flex-1">
             <Link className="mr-auto" href="/">
