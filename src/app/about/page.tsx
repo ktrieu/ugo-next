@@ -1,6 +1,7 @@
 import { ResponsiveContainer } from "@/components/container";
 import { PageHeader, SectionHeader } from "@/components/typography/page_header";
 import { Metadata } from "next";
+import { CoreValues } from "./core_values";
 
 export const metadata: Metadata = {
   title: "UGO II | About",
@@ -28,7 +29,7 @@ const AboutPage = () => {
         an essential part of company policy), but by our core values.
       </p>
       <SectionHeader>Core Values</SectionHeader>
-      <p>TBA</p>
+      <CoreValues/>
       <SectionHeader>Headquarters</SectionHeader>
     </ResponsiveContainer>
   );
