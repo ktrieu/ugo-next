@@ -2,6 +2,7 @@
 
 import { ReactNode, useState } from "react";
 import { Cube, Gavel, Icon, Money, Question } from "@phosphor-icons/react";
+import classNames from "classnames";
 
 type CoreValue = {
   icon: Icon;
@@ -13,7 +14,12 @@ const VALUES: CoreValue[] = [
   {
     icon: Gavel,
     name: "Bureaucracy",
-    text: <p>At UGO II, it begins and ends with bureaucracy.</p>,
+    text: (
+      <>
+        <p>At UGO II, it begins and ends with bureaucracy.</p>
+        <p>Don't believe us? Just join one of our patented scrums.</p>
+      </>
+    ),
   },
   {
     icon: Money,
@@ -53,7 +59,12 @@ const VALUES: CoreValue[] = [
   {
     icon: Gavel,
     name: "Bureaucracy",
-    text: <p>At UGO II, it begins and ends with bureaucracy.</p>,
+    text: (
+      <>
+        <p>At UGO II, it begins and ends with bureaucracy.</p>
+        <p>Don't believe us? Just join one of our patented scrums.</p>
+      </>
+    ),
   },
 ];
 
@@ -64,11 +75,22 @@ type CoreValueButtonProps = {
 };
 
 const CoreValueButton = (props: CoreValueButtonProps) => {
+  const buttonClass = classNames(
+    "w-full",
+    "p-3",
+    "border-primary",
+    "border-4",
+    "hover:bg-primary",
+    "hover:text-secondary",
+    "font-sans",
+    {
+      "bg-primary": props.selected,
+      "text-secondary": props.selected,
+    }
+  );
+
   return (
-    <button
-      className="w-full p-3 border-primary border-4 hover:bg-primary hover:text-secondary font-sans"
-      onClick={props.onClick}
-    >
+    <button className={buttonClass} onClick={props.onClick}>
       {props.value.name}
     </button>
   );
@@ -81,8 +103,12 @@ type CoreValueDescProps = {
 
 const CoreValueDesc = (props: CoreValueDescProps) => {
   const ValueIcon = props.value.icon;
+  const descClass = classNames({
+    hidden: !props.selected,
+  });
+
   return (
-    <div className={!props.selected ? "hidden" : ""}>
+    <div className={descClass}>
       <div className="text-primary mb-6">
         <ValueIcon size={64} />
       </div>
