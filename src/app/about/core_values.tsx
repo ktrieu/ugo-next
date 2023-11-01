@@ -16,7 +16,7 @@ const VALUES: CoreValue[] = [
     name: "Bureaucracy",
     text: (
       <>
-        <p>At UGO II, it begins and ends with bureaucracy.</p>
+        <p>At UGO II, our core values are protected by a resilient shell of bureaucracy.</p>
         <p>Don't believe us? Just join one of our patented scrums.</p>
       </>
     ),
@@ -61,7 +61,7 @@ const VALUES: CoreValue[] = [
     name: "Bureaucracy",
     text: (
       <>
-        <p>At UGO II, it begins and ends with bureaucracy.</p>
+        <p>At UGO II, our core values are protected by a resilient shell of bureaucracy.</p>
         <p>Don't believe us? Just join one of our patented scrums.</p>
       </>
     ),
