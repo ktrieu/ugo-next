@@ -83,6 +83,7 @@ const CoreValueButton = (props: CoreValueButtonProps) => {
     "hover:bg-primary",
     "hover:text-secondary",
     "font-sans",
+    "text-lg",
     {
       "bg-primary": props.selected,
       "text-secondary": props.selected,
@@ -121,8 +122,8 @@ export const CoreValues = () => {
   const [selectedValue, setSelectedValue] = useState<number>(0);
 
   return (
-    <div className="flex gap-12 items-stretch w-full flex-wrap lg:flex-nowrap">
-      <div className="flex-1 flex flex-col justify-stretch content-between gap-10 lg:gap-3 h-full">
+    <div className="flex gap-12 items-stretch w-full lg:flex-row flex-col">
+      <div className="flex-1 flex flex-col justify-stretch content-between gap-3 h-full">
         {VALUES.map((value, idx) => (
           <CoreValueButton
             key={idx}
