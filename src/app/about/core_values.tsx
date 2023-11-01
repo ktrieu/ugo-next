@@ -84,7 +84,7 @@ const CoreValueDesc = (props: CoreValueDescProps) => {
   return (
     <div className={!props.selected ? "hidden" : ""}>
       <div className="text-primary mb-6">
-        <ValueIcon size={128} />
+        <ValueIcon size={64} />
       </div>
       {props.value.text}
     </div>
@@ -96,7 +96,7 @@ export const CoreValues = () => {
 
   return (
     <div className="flex gap-12 items-stretch w-full flex-wrap lg:flex-nowrap">
-      <div className="flex-1 flex flex-col justify-stretch gap-3">
+      <div className="flex-1 flex flex-col justify-stretch content-between gap-10 lg:gap-3 h-full">
         {VALUES.map((value, idx) => (
           <CoreValueButton
             key={idx}
