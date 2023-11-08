@@ -1,10 +1,20 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import { Cube, Gavel, Icon, Money, Question } from "@phosphor-icons/react";
+import {
+  Cube,
+  Gavel,
+  Icon,
+  Money,
+  Question,
+  CaretDown,
+  CaretRight,
+} from "@phosphor-icons/react";
+import * as Accordion from "@radix-ui/react-accordion";
 import classNames from "classnames";
 
 type CoreValue = {
+  id: string;
   icon: Icon;
   name: string;
   text: ReactNode;
@@ -12,16 +22,21 @@ type CoreValue = {
 
 const VALUES: CoreValue[] = [
   {
+    id: "bureaucracy-1",
     icon: Gavel,
     name: "Bureaucracy",
     text: (
       <>
-        <p>At UGO II, our core values are protected by a resilient shell of bureaucracy.</p>
+        <p>
+          At UGO II, our core values are protected by a resilient shell of
+          bureaucracy.
+        </p>
         <p>Don't believe us? Just join one of our patented scrums.</p>
       </>
     ),
   },
   {
+    id: "not-for-cost",
     icon: Money,
     name: "Not-For-Cost Model",
     text: (
@@ -34,6 +49,7 @@ const VALUES: CoreValue[] = [
     ),
   },
   {
+    id: "our-product-is",
     icon: Cube,
     name: "Our Product Is",
     text: (
@@ -45,6 +61,7 @@ const VALUES: CoreValue[] = [
     ),
   },
   {
+    id: "who-can-say",
     icon: Question,
     name: "Who Can Say For Sure?",
     text: (
@@ -57,91 +74,77 @@ const VALUES: CoreValue[] = [
     ),
   },
   {
+    id: "bureaucracy-2",
     icon: Gavel,
     name: "Bureaucracy",
     text: (
       <>
-        <p>At UGO II, our core values are protected by a resilient shell of bureaucracy.</p>
+        <p>
+          At UGO II, our core values are protected by a resilient shell of
+          bureaucracy.
+        </p>
         <p>Don't believe us? Just join one of our patented scrums.</p>
       </>
     ),
   },
 ];
 
-type CoreValueButtonProps = {
-  value: CoreValue;
-  onClick: () => void;
+type ValueAccordionItemProps = {
+  item: CoreValue;
   selected: boolean;
 };
 
-const CoreValueButton = (props: CoreValueButtonProps) => {
-  const buttonClass = classNames(
-    "w-full",
-    "p-3",
-    "border-primary",
-    "border-4",
-    "hover:bg-primary",
-    "hover:text-secondary",
-    "font-sans",
-    "text-lg",
-    {
-      "bg-primary": props.selected,
-      "text-secondary": props.selected,
-    }
-  );
+const ValueAccordionItem = (props: ValueAccordionItemProps) => {
+  const ValueIcon = props.item.icon;
+
+  const triggerClass = classNames("w-full text-left text-2xl p-3");
 
   return (
-    <button className={buttonClass} onClick={props.onClick}>
-      {props.value.name}
-    </button>
-  );
-};
-
-type CoreValueDescProps = {
-  value: CoreValue;
-  selected: boolean;
-};
-
-const CoreValueDesc = (props: CoreValueDescProps) => {
-  const ValueIcon = props.value.icon;
-  const descClass = classNames({
-    hidden: !props.selected,
-  });
-
-  return (
-    <div className={descClass}>
-      <div className="text-primary mb-6">
-        <ValueIcon size={64} />
-      </div>
-      {props.value.text}
-    </div>
+    <Accordion.Item
+      value={props.item.id}
+      className="border-primary border-4 mb-3"
+    >
+      <Accordion.Header>
+        <Accordion.Trigger className={triggerClass}>
+          <div className="flex items-center">
+            {props.selected ? (
+              <CaretDown weight="bold" className="mr-3" />
+            ) : (
+              <CaretRight weight="bold" className="mr-3" />
+            )}
+            <h1>{props.item.name}</h1>
+          </div>
+        </Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content className="p-3">
+        <div className="flex items-center flex-col lg:flex-row">
+          <div className="text-primary mb-6 mr-auto lg:mr-6 lg:mb-0">
+            <ValueIcon size={64} />
+          </div>
+          <div className="flex-1">{props.item.text}</div>
+        </div>
+      </Accordion.Content>
+    </Accordion.Item>
   );
 };
 
 export const CoreValues = () => {
-  const [selectedValue, setSelectedValue] = useState<number>(0);
+  const [selected, setSelected] = useState<string | undefined>(undefined);
 
   return (
-    <div className="flex gap-12 items-stretch w-full lg:flex-row flex-col">
-      <div className="flex-1 flex flex-col justify-stretch content-between gap-3 h-full">
-        {VALUES.map((value, idx) => (
-          <CoreValueButton
-            key={idx}
-            value={value}
-            onClick={() => setSelectedValue(idx)}
-            selected={selectedValue === idx}
-          />
-        ))}
-      </div>
-      <div className="flex-1 flex">
-        {VALUES.map((value, idx) => (
-          <CoreValueDesc
-            key={idx}
-            value={value}
-            selected={selectedValue === idx}
-          />
-        ))}
-      </div>
-    </div>
+    <Accordion.Root
+      type="single"
+      value={selected}
+      onValueChange={(value) => setSelected(value)}
+      collapsible
+    >
+      {VALUES.map((value) => (
+        <ValueAccordionItem
+          item={value}
+          selected={selected === value.id}
+          key={value.id}
+        />
+      ))}
+    </Accordion.Root>
   );
 };
